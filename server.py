@@ -51,21 +51,6 @@ class MainPageHandler(webapp2.RequestHandler):
 
 
 ###############################################################################
-class CatPageHandler(webapp2.RequestHandler):
-  def get(self):
-    email = get_user_email()
-    if email:
-      page_params = {
-        'user_email': email,
-        'login_url': users.create_login_url(),
-        'logout_url': users.create_logout_url('/')
-      }
-      render_template(self, 'cat.html', page_params)
-    else:
-      self.redirect('/')
-
-
-###############################################################################
 class PostedProfile(ndb.Model):
   uname = ndb.StringProperty()
   #profile_url = ndb.StringProperty()
@@ -75,7 +60,6 @@ class PostedProfile(ndb.Model):
 
 
 mappings = [
-  ('/', MainPageHandler),
-  ('/cat', CatPageHandler)
+  ('/', MainPageHandler)
 ]
-app = webapp2.WSGIApplication(mappings, debug=True)x`
+app = webapp2.WSGIApplication(mappings, debug=True)
