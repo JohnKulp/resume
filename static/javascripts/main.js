@@ -18,14 +18,36 @@ $('.circle').each(function(){
 
 $(document).ready(function(){
 
-	var $knob_colors = ['red', 'green', 'blue'];
-	var alternate = 0;
 
-	function choose_knob_color(){
-		if(alternate == 3)alternate = 0;
-		return $knob_colors[alternate++];
+	//color alternating function
+	var $knob_colors = ['red', 'green', 'blue'];
+	var $alternate_progress = 0;
+
+	function choose_progress_color(){
+		if($alternate_progress == 3)$alternate_progress = 0;
+		return $knob_colors[$alternate_progress++];
 	}
 
+	//skill bars.  Different color for each section
+	$('.skill').each(function(){
+		var $color = choose_progress_color();
+
+		$(this).find('.skill-bar').jprogress({
+			background: $color
+		});
+	});
+
+
+	//color alternating function
+	var $knob_colors = ['red', 'green', 'blue'];
+	var $alternate_knob = 0;
+
+	function choose_knob_color(){
+		if($alternate_knob == 3) $alternate_knob = 0;
+		return $knob_colors[$alternate_knob++];
+	}
+
+	//languages.  Different color for each language
 	$('.circle').each(function(){
 		$(this).knob({
 			'angleOffset': 0,

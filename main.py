@@ -34,14 +34,27 @@ class MainPageHandler(webapp2.RequestHandler):
     }
 
     skills = {
-      skill(name="Java", val="90"),
-      skill(name="C", val="70"),
-      skill(name="Git", val="75"),
-      skill(name="Node.js", val="85"),
-      skill(name="Python", val="70"),
-      skill(name="Google App Engine", val="60"),
-      skill(name="Ruby on Rails", val="40"),
-      skill(name="SOAP XML", val="50")
+
+      skill(name="Programming Languages", val={
+
+        skill(name="Java", val="90"),
+        skill(name="C", val="70"),
+        skill(name="Python", val="80"),
+        skill(name="Javascript", val="70")
+      }),
+
+      skill(name="Web Frameworks", val={
+
+        skill(name="Node.js", val="85"),
+        skill(name="Google App Engine", val="60"),
+        skill(name="Ruby on Rails", val="40")
+      }),
+
+      skill(name="Services and Tools", val={
+        
+        skill(name="Git", val="75"),
+        skill(name="SOAP XML", val="50")
+      })
     }
 
 

@@ -1,8 +1,10 @@
 <html>
 	<head>
 		<link type="text/css" rel="stylesheet" href="/stylesheets/main.css" />
+		<link type="text/css" rel="stylesheet" href="/stylesheets/jprogress.min.css" />
 		<script type="text/javascript" src="/javascripts/jquery-1.11.3.min.js"></script>
 		<script type="text/javascript" src="/javascripts/jquery.knob.min.js"></script>
+		<script type="text/javascript" src="/javascripts/jprogress.min.js"></script>
 		
 	</head>
 	<body>
@@ -13,16 +15,19 @@
 			<div>education stuff here</div>
 		<h2>Skills</h2>
 			<ul id = "skills-list">
-				<li>
-					<div class="skill">Java</div>
-					<div class="skill-line"></div>
-					<div class="skill percent">95</div>
+			{% for category in skills %}
+				<li class="skill">
+					<h3>{{ category.name }}</h3>
+					<ul>
+					{% for skill in category.val %}
+						<li>
+							<span>{{ skill.name }}</span>
+							<div class="skill-bar" progress="{{ skill.val }}%"></div>
+						</li>
+					{% endfor %}
+					</ul>
 				</li>
-				<li>
-					<div class="skill">python</div>
-					<div class="skill-line"></div>
-					<div class="skill percent">80</div>
-				</li>
+			{% endfor %}
 			</ul>
 		<h2>Language Proficiency</h2>
 			<div id = "languages">
@@ -40,7 +45,13 @@
 				{% endfor %}
 
 			</div>
-		<h3>Contact</h3>
+		<h2>Contact</h2>
+			<ul>
+				<li>Email</li>
+				<li>Linkdin</li>
+				<li>Phone Number</li>
+				<li>Github</li>
+			</ul>
 	</body>
 
 	<script type="text/javascript" src="/javascripts/main.js"></script>
