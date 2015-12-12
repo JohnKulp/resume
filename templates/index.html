@@ -1,0 +1,47 @@
+<html>
+	<head>
+		<link type="text/css" rel="stylesheet" href="/stylesheets/main.css" />
+		<script type="text/javascript" src="/javascripts/jquery-1.11.3.min.js"></script>
+		<script type="text/javascript" src="/javascripts/jquery.knob.min.js"></script>
+		
+	</head>
+	<body>
+		<h1>John Kulp</h1>
+			<div>Intro about me</div>
+			<a href="/resume">download my resume</a> <a href="/cv">download my cover letter</a>
+		<h2>Education and Work Experience</h2>
+			<div>education stuff here</div>
+		<h2>Skills</h2>
+			<ul id = "skills-list">
+				<li>
+					<div class="skill">Java</div>
+					<div class="skill-line"></div>
+					<div class="skill percent">95</div>
+				</li>
+				<li>
+					<div class="skill">python</div>
+					<div class="skill-line"></div>
+					<div class="skill percent">80</div>
+				</li>
+			</ul>
+		<h2>Language Proficiency</h2>
+			<div id = "languages">
+
+				{% for language in languages %}
+
+				<div class="language">
+					<div class="circle-box">
+						<input class="circle" data-min="0" data-max="100" value="{{ language.val }}">
+						</input>
+						<div class="chart-label">{{ language.name }}</div>
+					</div>
+				</div>
+
+				{% endfor %}
+
+			</div>
+		<h3>Contact</h3>
+	</body>
+
+	<script type="text/javascript" src="/javascripts/main.js"></script>
+</html>

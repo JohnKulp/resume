@@ -1,12 +1,25 @@
-application: assignment-1101
+application: jk-1520-assignment-8
 version: v1
 runtime: python27
 api_version: 1
 threadsafe: yes
 
+# Handlers match in order
 handlers:
 - url: /static
   static_dir: static
 
+- url: /stylesheets/*
+  static_dir: static/stylesheets
+
+- url: /javascripts/*
+  static_dir: static/javascripts
+
 - url: /.*
   script: main.app
+
+libraries:
+- name: webapp2
+  version: latest
+- name: jinja2
+  version: latest
