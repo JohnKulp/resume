@@ -46,28 +46,30 @@
 			</ul>
 		</div>
 		<div class="section s2"><h2>Work Experience</h2>
-			<ul>
-				{% for work in employment %}
-				<li>
-					<div class="education-category">{{ work.start_date }}-{{ work.end_date}}</div>
-					<div class="education-company">{{ work.name }}</div>
-					<div class="education-title">{{ work.title }}</div>
-					<div class="education-content">{{ work.description }}</div>
-				</li>
-				{% endfor %}
-			</ul>
+			{% for work in employment %}
+			<div class="">
+				<section class="clearfix section-title">
+					<h5 class="education-category">{{ work.start_date }}-{{ work.end_date}}</h5>
+				</section>
+				<section class="clearfix section-content">
+						<div class="education-company">{{ work.name }}</div>
+						<div class="education-title">{{ work.title }}</div>
+						<div class="education-content">{{ work.description }}</div>
+				</section>
+			</div>
+			{% endfor %}
 		</div>
 		<div class="section s3"><h2>Education</h2>
-			<ul>
-				{% for school in education %}
-				<li>
-					<div class="education-category">{{ school.start_date }}-{{ school.end_date}}</div>
-					<div class="education-company">{{ school.name }}</div>
-					<div class="education-title">{{ school.title }}</div>
-					<div class="education-content">{{ school.description }}</div>
-				</li>
-				{% endfor %}
-			</ul>
+			{% for school in education %}
+			<section class="clearfix section-title">
+				<div class="education-category">{{ school.start_date }}-{{ school.end_date}}</div>
+			</section>
+			<section class="clearfix section-content">
+				<div class="education-company">{{ school.name }}</div>
+				<div class="education-title">{{ school.title }}</div>
+				<div class="education-content">{{ school.description }}</div>
+			</section>
+			{% endfor %}
 		</div>
 		<div class="section s4"><h2>Skills</h2>
 			<ul id = "skills-list">
