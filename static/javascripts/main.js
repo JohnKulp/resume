@@ -1,20 +1,10 @@
 
-/*$('.circle').each(function(){
-	console.log($(this).attr("percentage"))
-})
 
-$('.circle').each(function(){
-	var $percent = $(this).attr("percentage");
-	$(this).circleProgress({
-		value: $percent,
-		startAngle: Math.PI*1.5,
-		reverse: true,
-		size: 80,
-		thickness: 80/10,
-		animation: false,
-		fill: { gradient: ["green", "blue"] }
+function get_resume(){
+	$.get('/resume', function(data){
+
 	});
-});*/
+}
 
 $(document).ready(function(){
 
@@ -57,6 +47,10 @@ $(document).ready(function(){
 				return value + '%';
 			}
 		});
+	});
+	
+	$('.subMenu').smint({
+		'scrollSpeed' : 1000
 	});
 
 })
