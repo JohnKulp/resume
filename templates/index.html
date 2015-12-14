@@ -12,7 +12,7 @@
 	<div class="wrap ">
 		<div class="section sTop">
 			<div class="inner">
-				<h1 class="title">John Kulp Resume</h1>
+				<h1 class="title">John Kulp</h1>
 				<h2 class="subtitle">Writing well organized and maintainable code</h2>
 			</div>
 		</div>
@@ -29,40 +29,24 @@
 			</div>
 		</div>
 
-		<div class="section s1"><h2>Contact</h2>
-			<ul>
-				<li>Linkdin</li>
-				<li>Github</li>
-			</ul>
-			<ul>
-				<li>
-					<div>Email</div>
-					<div>John.H.Kulp@gmail.com</div>
-				</li>
-				<li>
-					<div>Phone Number</div>
-					<div>1-440-796-0245</div>
-				</li>
-			</ul>
-		</div>
-		<div class="section s2"><h2>Work Experience</h2>
+		<div class="section s1"><h2>Work Experience</h2>
 			{% for work in employment %}
-			<div class="">
+			<div class="clearfix">
 				<section class="clearfix section-title">
-					<h5 class="education-category">{{ work.start_date }}-{{ work.end_date}}</h5>
+					<h5 class="clearfix work-category">{{ work.start_date }}-{{ work.end_date}}</h5>
 				</section>
 				<section class="clearfix section-content">
-						<div class="education-company">{{ work.name }}</div>
-						<div class="education-title">{{ work.title }}</div>
-						<div class="education-content">{{ work.description }}</div>
+						<div class="work-company">{{ work.name }}</div>
+						<div class="work-title">{{ work.title }}</div>
+						<div class="work-content">{{ work.description }}</div>
 				</section>
 			</div>
 			{% endfor %}
 		</div>
-		<div class="section s3"><h2>Education</h2>
+		<div class="section s2"><h2>Education</h2>
 			{% for school in education %}
 			<section class="clearfix section-title">
-				<div class="education-category">{{ school.start_date }}-{{ school.end_date}}</div>
+				<h5 class="education-category">{{ school.start_date }}-{{ school.end_date}}</h5>
 			</section>
 			<section class="clearfix section-content">
 				<div class="education-company">{{ school.name }}</div>
@@ -71,7 +55,7 @@
 			</section>
 			{% endfor %}
 		</div>
-		<div class="section s4"><h2>Skills</h2>
+		<div class="section s3"><h2>Skills</h2>
 			<ul id = "skills-list">
 			{% for category in skills %}
 				<li class="skill">
@@ -88,7 +72,7 @@
 			{% endfor %}
 			</ul>
 		</div>
-		<div class="section s5"><h2>Language Proficiency</h2>
+		<div class="section s4"><h2>Language Proficiency</h2>
 			<div id = "languages">
 				{% for language in languages %}
 				<div class="language">
@@ -99,6 +83,30 @@
 					</div>
 				</div>
 				{% endfor %}
+			</div>
+		</div>
+		<div class="section s5"><h2>Contact</h2>
+			<ul>
+				<li>Linkdin</li>
+				<li>Github</li>
+			</ul>
+			<ul>
+				<li>
+					<div>Email</div>
+					<div>John.H.Kulp@gmail.com</div>
+				</li>
+				<li>
+					<div>Phone Number</div>
+					<div>1-440-796-0245</div>
+				</li>
+			</ul>
+			<br><br><br>
+			<p id="thank-you" style="color: red;"></p><br>
+			<p>Send me an Email!</p>
+			<div id="send-email">
+				Contact Information: <input id="email-address" type="email" name="email-address" value=""><br>
+				<textarea id="email-content" name="paragraph_text" cols="50" rows="10">Type your message here.</textarea>
+				<input type="submit" onclick="send_email()">
 			</div>
 		</div>
 	</div>

@@ -22,22 +22,16 @@ h5{
 }
 
 
-.clearfix:after {
-   visibility: hidden;
-   display: block;
-   height: 0;
-   clear: both;
-}
 .section-title{
-	display: inline-block;
-	float: left;
+	/*display: inline-block;
+	float: left;*/
 	text-align: right;
 	padding-right: 5px;
 	min-height: 50px;
 }
 .section-content{
-	display: inline-block;
-	float: left;
+	/*display: inline-block;
+	float: left;*/
 }
 
 .language {

@@ -3,7 +3,7 @@ import os
 import webapp2
 import jinja2
 
-
+from google.appengine.api import mail
 from google.appengine.ext.webapp import template
 
 JINJA_ENVIRONMENT = jinja2.Environment(
@@ -128,9 +128,20 @@ class MainPageHandler(webapp2.RequestHandler):
     render_template(self, 'index.html', params)
 
 
+class MailHandler(webapp2.RequestHandler):
+  def post(self):
+    user_address = self.request.get("email-address")
+    email_content = self.request.get("email-content")
+
+    sender_address = "John Kulp <john.h.kulp@gmail.com>"
+    subject = "New resume website message!"
+    body = user_address + ": \n\n" + email_content
+    mail.send_mail('john-kulp@john-kulp-resume.appspotmail.com', sender_address, subject, body)
+    self.response.write("OK")
 
 mappings = [
   ('/', MainPageHandler),
-  ('/resume', ResumeHandler)
+  ('/resume', ResumeHandler),
+  ('/mail', MailHandler)
 ]
 app = webapp2.WSGIApplication(mappings, debug=True)
