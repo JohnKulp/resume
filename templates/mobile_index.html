@@ -10,20 +10,217 @@
 	<script src="http://code.jquery.com/mobile/1.2.1/jquery.mobile-1.2.1.min.js"></script>
 	<script type="text/javascript" src="/javascripts/main_mobile.js"></script>
 </head> 
+
 <body> 
 
-<div data-role="page">
+<!-- Start of first page -->
+<div data-role="page" id="Home">
 
 	<div data-role="header">
-		<h1>Page Title</h1>
+		<h1>John Kulp</h1>
+		<h2>Home</h2>
 	</div><!-- /header -->
 
 	<div data-role="content">	
-		<p>Page content goes here.</p>		
+		<p>Writing well organized and maintainable code</p>	
+		<br>
+		<div data-role="listview">
+			<li><a href="#About-Me" data-transition="slide">About Me</a></li>
+			<li><a href="#Employment" data-transition="slide">Employment</a></li>	
+			<li><a href="#Education" data-transition="slide">Education</a></li>
+			<li><a href="#Skills" data-transition="slide">Skills</a></li>	
+			<li><a href="#Interests" data-transition="slide">Interests</a></li>
+			<li><a href="#Contact-Me" data-transition="slide">Contact Me</a></li>
+		</div>
 	</div><!-- /content -->
 
 	<div data-role="footer">
-		<h4>Page Footer</h4>
+		<h4><a href="/desktop" rel="external">View the Desktop version of the site</a></h4>
+	</div><!-- /footer -->
+</div><!-- /page -->
+
+
+<!-- Start of second page -->
+<div data-role="page" id="About-Me">
+
+	<div data-role="header">
+		<h1>John Kulp</h1>
+		<h2>About Me</h2>
+	</div><!-- /header -->
+
+	<div data-role="content">	
+		<p>I'm currently a senior at the University of Pittsburgh studying Computer Science and Japanese.</p>	
+		<p><a href="#Home" data-transition="slide" data-direction="reverse">Back to Home</a></p>	
+	</div><!-- /content -->
+
+	<div data-role="footer">
+		<h4></h4>
+	</div><!-- /footer -->
+</div><!-- /page -->
+
+
+<!-- Start of third page -->
+<div data-role="page" id="Employment">
+
+	<div data-role="header">
+		<h1>John Kulp</h1>
+		<h2>Employment</h2>
+	</div><!-- /header -->
+
+	<div data-role="content">	
+		{% for work in employment %}
+		<div>
+			<section>
+				<h5>{{ work.start_date }}-{{ work.end_date}}</h5>
+			</section>
+			<section>
+					<div>{{ work.name }}</div>
+					<div>{{ work.title }}</div>
+					<div>{{ work.description }}</div>
+			</section>
+		</div>
+		{% endfor %}
+		<p><a href="#Home" data-transition="slide" data-direction="reverse">Back to Home</a></p>
+	</div><!-- /content -->
+
+	<div data-role="footer">
+		<h4></h4>
+	</div><!-- /footer -->
+</div><!-- /page -->
+
+
+<!-- Start of fourth page -->
+<div data-role="page" id="Education">
+
+	<div data-role="header">
+		<h1>John Kulp</h1>
+		<h2>Education</h2>
+	</div><!-- /header -->
+
+	<div data-role="content">
+		{% for school in education %}
+		<section class="clearfix section-title">
+			<h5 class="education-category">{{ school.start_date }}-{{ school.end_date}}</h5>
+		</section>
+		<section class="clearfix section-content">
+			<div class="education-company">{{ school.name }}</div>
+			<div class="education-title">{{ school.title }}</div>
+			<div class="education-content">{{ school.description }}</div>
+		</section>
+		{% endfor %}	
+		<p><a href="#Home" data-transition="slide" data-direction="reverse">Back to Home</a></p>	
+	</div><!-- /content -->
+
+	<div data-role="footer">
+		<h4></h4>
+	</div><!-- /footer -->
+</div><!-- /page -->
+
+
+<!-- Start of sixth page -->
+<div data-role="page" id="Skills">
+
+	<div data-role="header">
+		<h1>John Kulp</h1>
+		<h2>Skills</h2>
+	</div><!-- /header -->
+
+	<div data-role="content">
+		<ul id = "skills-list">
+		{% for category in skills %}
+		<li class="skill">
+			<h3>{{ category.name }}</h3>
+			<ul>
+			{% for skill in category.val %}
+				<li>
+					<div class="skill-category">{{ skill.name }}</div>
+					<div class="skill-bar" progress="{{ skill.val }}%"></div>
+				</li>
+			{% endfor %}
+			</ul>
+		</li>
+		{% endfor %}
+		<li>
+			<h3>Languages</h3>
+				<ul>
+				{% for language in languages %}
+					<li>
+						<div class="skill-category">{{ language.name }}</div>
+						<div class="skill-bar" progress="{{ language.val }}%"></div>
+					</li>
+				{% endfor %}
+				</ul>
+			</li>
+		</ul>	
+		<p><a href="#Home" data-transition="slide" data-direction="reverse">Back to Home</a></p>	
+	</div><!-- /content -->
+
+	<div data-role="footer">
+		<h4></h4>
+	</div><!-- /footer -->
+</div><!-- /page -->
+
+
+<!-- Start of seventh page -->
+<div data-role="page" id="Interests">
+
+	<div data-role="header">
+		<h1>John Kulp</h1>
+		<h2>Interests</h2>
+	</div><!-- /header -->
+
+	<div data-role="content">	
+		<ul>
+			<li>Baduk</li>
+			<li>Story Writimg</li>
+			<li>Reading</li>
+			<li>Music</li>
+		</ul>
+		<p><a href="#Home" data-transition="slide" data-direction="reverse">Back to Home</a></p>	
+	</div><!-- /content -->
+
+	<div data-role="footer">
+		<h4></h4>
+	</div><!-- /footer -->
+</div><!-- /page -->
+
+
+<!-- Start of eighth page -->
+<div data-role="page" id="Contact-Me">
+
+	<div data-role="header">
+		<h1>John Kulp</h1>
+		<h2>Contact Me</h2>
+	</div><!-- /header -->
+
+	<div data-role="content">	
+		<ul>
+			<li>Linkdin</li>
+			<li>Github</li>
+		</ul>
+		<ul>
+			<li>
+				<div>Email</div>
+				<div>John.H.Kulp@gmail.com</div>
+			</li>
+			<li>
+				<div>Phone Number</div>
+				<div>1-440-796-0245</div>
+			</li>
+		</ul>
+		<br><br><br>
+		<p id="thank-you" style="color: red;"></p><br>
+		<p>Send me an Email!</p>
+		<div id="send-email">
+			Contact Information: <input id="email-address" type="email" name="email-address" value=""><br>
+			<textarea id="email-content" name="paragraph_text" cols="50" rows="10">Type your message here.</textarea>
+			<input type="submit" value="submit" onclick="send_email()">
+		</div>
+		<p><a href="#Home" data-transition="slide" data-direction="reverse">Back to Home</a></p>	
+	</div><!-- /content -->
+
+	<div data-role="footer">
+		<h4></h4>
 	</div><!-- /footer -->
 </div><!-- /page -->
 

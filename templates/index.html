@@ -1,6 +1,7 @@
 <!DOCTYPE html> 
 <html>
 	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1"> 
 		<link type="text/css" rel="stylesheet" href="/stylesheets/main.css" />
 		<link type="text/css" rel="stylesheet" href="/stylesheets/jprogress.min.css" />
 		<script type="text/javascript" src="/javascripts/jquery-1.11.3.min.js"></script>
@@ -32,7 +33,7 @@
 
 		<div class="section s1"><h2>Work Experience</h2>
 			{% for work in employment %}
-			<div class="clearfix">
+			<div class="clearfix column-wrap">
 				<section class="clearfix section-title">
 					<h5 class="clearfix work-category">{{ work.start_date }}-{{ work.end_date}}</h5>
 				</section>
