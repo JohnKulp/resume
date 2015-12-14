@@ -125,7 +125,12 @@ class MainPageHandler(webapp2.RequestHandler):
       'languages': languages
     }
 
-    render_template(self, 'index.html', params)
+    uastring = self.request.headers.get('user_agent')
+
+    if "Mobile" in uastring:
+      render_template(self, 'mobile_index.html', params)
+    else:
+      render_template(self, 'index.html', params)
 
 
 class MailHandler(webapp2.RequestHandler):
